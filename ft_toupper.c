@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstoliar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 16:48:50 by sstoliar          #+#    #+#             */
-/*   Updated: 2018/11/17 16:48:51 by sstoliar         ###   ########.fr       */
+/*   Created: 2018/11/17 17:45:23 by sstoliar          #+#    #+#             */
+/*   Updated: 2018/11/17 17:45:24 by sstoliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_toupper(int c)
 {
-	int idx;
-
-	idx = 0;
-	while (s1[idx] && s2[idx] && s1[idx] == s2[idx])
-		idx++;
-	return (s1[idx] - s2[idx]);
+	if (ft_islower(c))
+		return ('A' - 'a' + c);
+	else
+		return (c);
 }

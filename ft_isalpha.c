@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstoliar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 16:48:50 by sstoliar          #+#    #+#             */
-/*   Updated: 2018/11/17 16:48:51 by sstoliar         ###   ########.fr       */
+/*   Created: 2018/11/17 17:27:56 by sstoliar          #+#    #+#             */
+/*   Updated: 2018/11/17 17:27:57 by sstoliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_isalpha(int c)
 {
-	int idx;
-
-	idx = 0;
-	while (s1[idx] && s2[idx] && s1[idx] == s2[idx])
-		idx++;
-	return (s1[idx] - s2[idx]);
+	return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
 }

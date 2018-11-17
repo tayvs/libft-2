@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstoliar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 16:48:50 by sstoliar          #+#    #+#             */
-/*   Updated: 2018/11/17 16:48:51 by sstoliar         ###   ########.fr       */
+/*   Created: 2018/11/17 17:03:55 by sstoliar          #+#    #+#             */
+/*   Updated: 2018/11/17 17:03:56 by sstoliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
+#define STREQ(c) str[idx] == c
 
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_atoi(const char *str)
 {
 	int idx;
+	int num;
+	int sign;
 
 	idx = 0;
-	while (s1[idx] && s2[idx] && s1[idx] == s2[idx])
+	num = 0;
+	sign = 1;
+	while (STREQ('\n') || STREQ('\f') || STREQ('\r') ||
+		STREQ(' ') || STREQ('\t') || STREQ('\f'))
 		idx++;
-	return (s1[idx] - s2[idx]);
+	if (STREQ('-') || STREQ('+'))
+	{
+		if (STREQ('-'))
+			sign = -1;
+		idx++;
+	}
+	while (ft_isdigit(str[idx]))
+	{
+		num = num * 10 - (str[idx] - '0');
+		idx++;
+	}
+	return (-sign * num);
 }

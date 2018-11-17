@@ -5,19 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstoliar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 16:48:50 by sstoliar          #+#    #+#             */
-/*   Updated: 2018/11/17 16:48:51 by sstoliar         ###   ########.fr       */
+/*   Created: 2018/11/11 18:50:58 by sstoliar          #+#    #+#             */
+/*   Updated: 2018/11/11 18:51:03 by sstoliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_strlen(char *str)
 {
-	int idx;
+	int len;
 
-	idx = 0;
-	while (s1[idx] && s2[idx] && s1[idx] == s2[idx])
-		idx++;
-	return (s1[idx] - s2[idx]);
+	len = 0;
+	while (*(str++))
+		len++;
+	return (len);
 }
