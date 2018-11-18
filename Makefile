@@ -16,7 +16,7 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) -c *.c
+	gcc $(FLAGS) -c *.c libft.h
 	ar rc $(NAME).a *.o
 	ranlib $(NAME).a
 
