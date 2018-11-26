@@ -15,18 +15,15 @@
 int		digits(int n)
 {
 	int num;
-	int sub;
 
 	num = 1;
-	sub = 1;
-	while (n / sub >= 10)
-	{
-		sub *= 10;
-		num++;
-	}
+	while (n / 10 > 0 && num++)
+		n /= 10;
 	return (num);
 }
 
+
+//TODO
 char	*ft_itoa(int n)
 {
 	int		str_len;
@@ -39,13 +36,19 @@ char	*ft_itoa(int n)
 	idx = 0;
 	if (n < 0)
 		isNeg = 1;
-	str_len += digits(n);
-	str = ft_strnew(str_len + isNeg);
+	str_len = digits(n) + isNeg;
+	str = ft_strnew(str_len);
 	if (isNeg)
-		str[idx++] = '-';
-	while (str[idx])
 	{
-
-		idx++;
+		str[idx++] = '-';
+		n *= -1;
 	}
+	idx = str_len - 1;
+	while (idx - isNeg >= 0)
+	{
+		str[idx] = n % 10;
+		n / 10;
+		idx--;
+	}
+	return (str);
 }
