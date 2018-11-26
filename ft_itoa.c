@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		digits(int n)
+static int	digits(int n)
 {
 	int num;
 
@@ -22,7 +22,7 @@ int		digits(int n)
 	return (num);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		str_len;
 	char	*str;

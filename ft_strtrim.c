@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		is_white(char c)
+static int	is_white(char c)
 {
 	if (c == ' ' || c == '\n' || c == '\t')
 		return (1);
@@ -20,7 +20,7 @@ int		is_white(char c)
 		return (0);
 }
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
 	int		l_offset;
 	int		r_offset;

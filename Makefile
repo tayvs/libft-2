@@ -10,21 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME):
 	gcc $(FLAGS) -c *.c
-	ar rc $(NAME).a *.o
-	ranlib $(NAME).a
+	ar rc $(NAME) *.o
+	ranlib $(NAME)
 
 clean:
 	rm -f *.o
 
 fclean: clean
-	rm -f $(NAME).a
+	rm -f $(NAME)
 
 re: fclean all
 
