@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	put_pos_nbr_fd(unsigned int n, int fd)
+{
+	if (n >= 10)
+		put_pos_nbr_fd(n / 10, fd);
+	ft_putchar_fd('0' + n % 10, fd);
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
@@ -21,11 +30,4 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 		put_pos_nbr_fd(n, fd);
-}
-
-void	static put_pos_nbr_fd(unsigned int n, int fd)
-{
-	if (n >= 10)
-		put_pos_nbr_fd(n / 10, fd);
-	ft_putchar_fd('0' + n % 10, fd);
 }

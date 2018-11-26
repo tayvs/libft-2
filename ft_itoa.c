@@ -22,32 +22,30 @@ int		digits(int n)
 	return (num);
 }
 
-
-//TODO
 char	*ft_itoa(int n)
 {
 	int		str_len;
 	char	*str;
-	int		isNeg;
-	int 	idx;
+	int		is_neg;
+	int		idx;
 
 	str_len = 0;
-	isNeg = 0;
+	is_neg = 0;
 	idx = 0;
 	if (n < 0)
-		isNeg = 1;
-	str_len = digits(n) + isNeg;
+		is_neg = 1;
+	str_len = digits(n) + is_neg;
 	str = ft_strnew(str_len);
-	if (isNeg)
+	if (is_neg)
 	{
 		str[idx++] = '-';
 		n *= -1;
 	}
 	idx = str_len - 1;
-	while (idx - isNeg >= 0)
+	while (idx - is_neg >= 0)
 	{
 		str[idx] = n % 10;
-		n / 10;
+		n /= 10;
 		idx--;
 	}
 	return (str);
