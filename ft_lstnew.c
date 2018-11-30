@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstoliar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 17:02:01 by sstoliar          #+#    #+#             */
-/*   Updated: 2018/11/17 17:02:03 by sstoliar         ###   ########.fr       */
+/*   Created: 2018/11/30 19:50:25 by sstoliar          #+#    #+#             */
+/*   Updated: 2018/11/30 19:50:37 by sstoliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(char *haystack, const char *needle, size_t len)
+t_list	*ft_lstnew(void *content, size_t content_size)
 {
-	size_t	idx;
-	size_t	h_len;
-	size_t	n_len;
+	t_list	*res;
 
-	idx = 0;
-	h_len = ft_strlen((char *)haystack);
-	n_len = ft_strlen((char *)needle);
-	while (haystack[idx] && h_len - idx >= n_len && idx < len)
-	{
-		if (ft_strncmp(&haystack[idx], needle, n_len) == 0)
-			return ((char *)&haystack[idx]);
-		idx++;
-	}
-	return (NULL);
+	res = ft_memalloc(sizeof(t_list));
+	if (!res)
+		return (res);
+	res->content = content;
+	res->next = NULL;
+	if (content == NULL)
+		content_size = 0;
+	res->content_size = content_size;
+	return (res);
 }

@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstoliar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 17:02:01 by sstoliar          #+#    #+#             */
-/*   Updated: 2018/11/17 17:02:03 by sstoliar         ###   ########.fr       */
+/*   Created: 2018/11/30 20:18:44 by sstoliar          #+#    #+#             */
+/*   Updated: 2018/11/30 20:18:46 by sstoliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(char *haystack, const char *needle, size_t len)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t	idx;
-	size_t	h_len;
-	size_t	n_len;
+	t_list	*res;
+	t_list	**iter;
 
-	idx = 0;
-	h_len = ft_strlen((char *)haystack);
-	n_len = ft_strlen((char *)needle);
-	while (haystack[idx] && h_len - idx >= n_len && idx < len)
+	iter = &res;
+	while (lst)
 	{
-		if (ft_strncmp(&haystack[idx], needle, n_len) == 0)
-			return ((char *)&haystack[idx]);
-		idx++;
+		*iter = f(lst);
+		*iter = (*iter)->next;
+		lst = lst->next;
 	}
-	return (NULL);
+	return (res);
 }
