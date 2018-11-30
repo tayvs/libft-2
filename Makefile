@@ -28,9 +28,7 @@ fclean: clean
 
 re: fclean all
 
-check:
-	gcc $(FLAGS) -c *.c
-	rm -f *.o
+check: all fclean
 
 norm:
 	norminette *.c *.h
