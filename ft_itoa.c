@@ -17,8 +17,10 @@ static int	digits(int n)
 	int num;
 
 	num = 1;
-	while (n / 10 > 0 && num++)
+	while (n / 10 != 0 && ++num)
+	{
 		n /= 10;
+	}
 	return (num);
 }
 
@@ -39,12 +41,11 @@ char		*ft_itoa(int n)
 	if (is_neg)
 	{
 		str[idx++] = '-';
-		n *= -1;
 	}
 	idx = str_len - 1;
 	while (idx - is_neg >= 0)
 	{
-		str[idx] = n % 10;
+		str[idx] = ft_abs(n % 10) + '0';
 		n /= 10;
 		idx--;
 	}
