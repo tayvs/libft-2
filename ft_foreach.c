@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstoliar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/18 15:08:41 by sstoliar          #+#    #+#             */
-/*   Updated: 2018/11/18 15:08:44 by sstoliar         ###   ########.fr       */
+/*   Created: 2018/11/10 21:09:57 by sstoliar          #+#    #+#             */
+/*   Updated: 2018/11/10 21:09:58 by sstoliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_strdel(char **as)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	if (as && *as)
+	int i;
+
+	i = 0;
+	while (i < length)
 	{
-		free(*as);
-		*as = NULL;
+		f(tab[i]);
+		i++;
 	}
 }

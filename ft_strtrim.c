@@ -27,6 +27,8 @@ char		*ft_strtrim(char const *s)
 	int		s_len;
 	char	*dest;
 
+	if (!s)
+		return (NULL);
 	l_offset = 0;
 	r_offset = 0;
 	s_len = ft_strlen((char *)s);

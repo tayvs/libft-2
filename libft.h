@@ -93,5 +93,7 @@ int				ft_abs(int n);
 int				ft_islower(int c);
 int				ft_isupper(int c);
 void			ft_strarrayprint(char **s);
+int				ft_count_if(char **tab, int (*f)(char*));
+void			ft_foreach(int *tab, int length, void (*f)(int));
 
 #endif

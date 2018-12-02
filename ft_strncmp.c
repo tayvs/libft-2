@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 int		ft_strncmp(const char *s1, const char *s2, size_t len)
 {
@@ -19,9 +19,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t len)
 	if (len == 0)
 		return (0);
 	idx = 0;
-	while (idx < len)
+	while (idx < len && s1[idx] && s2[idx])
 	{
-		if (s1[idx] && s2[idx] && s1[idx] == s2[idx])
+		if (s1[idx] != s2[idx])
 			return ((unsigned char)s1[idx] - (unsigned char)s2[idx]);
 		idx++;
 	}

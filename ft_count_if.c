@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstoliar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/18 15:08:41 by sstoliar          #+#    #+#             */
-/*   Updated: 2018/11/18 15:08:44 by sstoliar         ###   ########.fr       */
+/*   Created: 2018/11/10 21:12:53 by sstoliar          #+#    #+#             */
+/*   Updated: 2018/11/10 21:12:55 by sstoliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_strdel(char **as)
+int		ft_count_if(char **tab, int (*f)(char*))
 {
-	if (as && *as)
+	int count;
+
+	count = 0;
+	while (*tab)
 	{
-		free(*as);
-		*as = NULL;
+		if (f(*tab) == 1)
+			count++;
+		tab++;
 	}
+	return (count);
 }
