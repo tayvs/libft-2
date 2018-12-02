@@ -92,5 +92,6 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_abs(int n);
 int				ft_islower(int c);
 int				ft_isupper(int c);
+void			ft_strarrayprint(char **s);
 
 #endif
