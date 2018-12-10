@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#define D_ERROR(n) printf("Error, %i \n", n)
 
 char	*ft_strnstr(char *haystack, const char *needle, size_t len)
 {
