@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#define D_ERROR	{ printf("Error Line %d, Funct %s ", __LINE__ - 1, __func__); return (0); }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -22,8 +23,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	s1_size = ft_strlen((char *)s1);
 	s2_size = ft_strlen((char *)s1);
-	dest = ft_strnew(s1_size + s2_size);
+	dest = ft_strnew(s1_size + s2_size + 1);
+	if (!dest)
+		return (NULL);
 	ft_strcpy(dest, s1);
-	ft_strcpy(&dest[s1_size - 2], s2);
+	ft_strcpy(&dest[s1_size], s2);
 	return (dest);
 }
