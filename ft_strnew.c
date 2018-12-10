@@ -20,7 +20,7 @@ char	*ft_strnew(size_t size)
 	idx = 0;
 	str = (char *)ft_memalloc(size);
 	if (!str)
-		return (str);
+		return (NULL);
 	while (idx <= size)
 	{
 		str[idx] = '\0';

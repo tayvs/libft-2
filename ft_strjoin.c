@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#define D_ERROR	{ printf("Error Line %d, Funct %s ", __LINE__ - 1, __func__); return (0); }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

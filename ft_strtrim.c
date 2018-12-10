@@ -32,11 +32,15 @@ char		*ft_strtrim(char const *s)
 	l_offset = 0;
 	r_offset = 0;
 	s_len = ft_strlen((char *)s);
-	while (is_white(s[l_offset]))
+	while (s[l_offset] && is_white(s[l_offset]))
 		l_offset++;
+	if (l_offset >= s_len)
+		return (ft_strnew(1));
 	while (is_white(s[s_len - 1 - r_offset]))
 		r_offset++;
-	dest = (char *)malloc(s_len - l_offset - r_offset);
-	ft_strncpy(dest, &s[l_offset], s_len - l_offset - r_offset);
+	dest = ft_strnew(s_len - l_offset - r_offset);
+	if (!dest)
+		return (NULL);
+	ft_strncpy(dest, s + l_offset, s_len - l_offset - r_offset);
 	return (dest);
 }
