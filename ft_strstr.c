@@ -14,13 +14,17 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int	idx;
-	int h_len;
-	int n_len;
+	size_t	idx;
+	size_t	h_len;
+	size_t	n_len;
 
 	idx = 0;
-	h_len = ft_strlen((char *)haystack);
 	n_len = ft_strlen((char *)needle);
+	if (n_len == 0)
+		return ((char *)haystack);
+	h_len = ft_strlen((char *)haystack);
+	if (h_len == 0 || n_len > h_len)
+		return (NULL);
 	while (haystack[idx] && h_len - idx >= n_len)
 	{
 		if (ft_strncmp(&haystack[idx], needle, n_len) == 0)
