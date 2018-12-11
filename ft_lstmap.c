@@ -19,13 +19,12 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 
 	if (!lst || !f)
 		return (NULL);
-	iter = f(lst);
-	res = iter;
+	res = f(lst);
+	iter = res;
 	lst = lst->next;
 	while (lst)
 	{
-		iter = f(lst);
-		iter
+		iter->next = f(lst);
 		iter = iter->next;
 		lst = lst->next;
 	}

@@ -73,7 +73,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_itoa(int n);
-void			ft_putchar(char c);
+void			ft_putchar(unsigned long c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);
 void			ft_putnbr(int n);
@@ -95,5 +95,6 @@ int				ft_isupper(int c);
 void			ft_strarrayprint(char **s);
 int				ft_count_if(char **tab, int (*f)(char*));
 void			ft_foreach(int *tab, int length, void (*f)(int));
+void			ft_lst_str_print(t_list *lst);
 
 #endif
