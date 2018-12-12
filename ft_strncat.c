@@ -15,8 +15,15 @@
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
 	size_t s1_len;
+	size_t idx;
 
 	s1_len = ft_strlen(s1);
-	ft_strncpy(&s1[s1_len], s2, n);
+	idx = 0;
+	while (idx < n && s2[idx])
+	{
+		s1[s1_len + idx] = s2[idx];
+		idx++;
+	}
+	s1[s1_len + idx] = 0;
 	return (s1);
 }
