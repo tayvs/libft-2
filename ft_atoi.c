@@ -15,9 +15,9 @@
 
 int		ft_atoi(const char *str)
 {
-	int idx;
-	int num;
-	int sign;
+	int		idx;
+	long	num;
+	int		sign;
 
 	idx = 0;
 	num = 0;
@@ -33,8 +33,8 @@ int		ft_atoi(const char *str)
 	}
 	while (ft_isdigit(str[idx]))
 	{
-		num = num * 10 - (str[idx] - '0');
+		num = num * 10 + sign * (str[idx] - '0');
 		idx++;
 	}
-	return (-sign * num);
+	return (int)(num);
 }
