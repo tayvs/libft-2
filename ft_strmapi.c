@@ -22,6 +22,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	size = ft_strlen((char *)s);
 	dest = ft_strnew(size);
+	if (!dest)
+		return (NULL);
 	idx = 0;
 	while (idx < size)
 	{
