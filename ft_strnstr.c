@@ -25,10 +25,10 @@ char	*ft_strnstr(char *haystack, const char *needle, size_t len)
 	h_len = ft_strlen((char *)haystack);
 	if (h_len == 0 || n_len > h_len || len < n_len)
 		return (NULL);
-	while (haystack[idx] && h_len - idx >= n_len && idx < len)
+	while (haystack[idx] && idx + n_len - 1 < len)
 	{
 		if (ft_strncmp(haystack + idx, needle, n_len) == 0)
-			return ((char *)&haystack[idx]);
+			return (haystack + idx);
 		idx++;
 	}
 	return (NULL);
