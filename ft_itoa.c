@@ -38,6 +38,8 @@ char		*ft_itoa(int n)
 		is_neg = 1;
 	str_len = digits(n) + is_neg;
 	str = ft_strnew(str_len);
+	if (!str)
+		return (NULL);
 	if (is_neg)
 	{
 		str[idx++] = '-';
@@ -45,9 +47,8 @@ char		*ft_itoa(int n)
 	idx = str_len - 1;
 	while (idx - is_neg >= 0)
 	{
-		str[idx] = ft_abs(n % 10) + '0';
+		str[idx--] = ft_abs(n % 10) + '0';
 		n /= 10;
-		idx--;
 	}
 	return (str);
 }

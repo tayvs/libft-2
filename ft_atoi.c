@@ -15,9 +15,9 @@
 
 int		ft_atoi(const char *str)
 {
-	int		idx;
-	long	num;
-	int		sign;
+	size_t				idx;
+	long long			num;
+	int					sign;
 
 	idx = 0;
 	num = 0;
@@ -26,15 +26,14 @@ int		ft_atoi(const char *str)
 		STREQ(' ') || STREQ('\t') || STREQ('\f') || STREQ('\v'))
 		idx++;
 	if (STREQ('-') || STREQ('+'))
-	{
-		if (STREQ('-'))
+		if (str[idx++] == '-')
 			sign = -1;
-		idx++;
-	}
 	while (ft_isdigit(str[idx]))
-	{
-		num = num * 10 + sign * (str[idx] - '0');
-		idx++;
-	}
-	return (int)(num);
+		num = num * 10 + sign * (str[idx++] - '0');
+	if (num != (signed long)num && sign == 1)
+		return (-1);
+	else if (num != (signed long)num && sign == -1)
+		return (0);
+	else
+		return (num);
 }
