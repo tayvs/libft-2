@@ -19,7 +19,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	dest = ft_strnew(len + 1);
+	dest = ft_strnew(len);
 	if (!dest)
 		return (NULL);
 	idx = 0;
