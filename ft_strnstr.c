@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	idx;
 	size_t	h_len;
@@ -21,14 +21,14 @@ char	*ft_strnstr(char *haystack, const char *needle, size_t len)
 	idx = 0;
 	n_len = ft_strlen(needle);
 	if (n_len == 0)
-		return (haystack);
+		return (char *)(haystack);
 	h_len = ft_strlen(haystack);
 	if (h_len == 0 || n_len > h_len || len < n_len)
 		return (NULL);
 	while (haystack[idx] && idx + n_len - 1 < len)
 	{
 		if (ft_strncmp(haystack + idx, needle, n_len) == 0)
-			return (haystack + idx);
+			return (char *)(haystack + idx);
 		idx++;
 	}
 	return (NULL);
