@@ -31,7 +31,7 @@ char		*ft_strtrim(char const *s)
 		return (NULL);
 	l_offset = 0;
 	r_offset = 0;
-	s_len = ft_strlen((char *)s);
+	s_len = ft_strlen(s);
 	while (s[l_offset] && is_white(s[l_offset]))
 		l_offset++;
 	if (l_offset >= s_len)

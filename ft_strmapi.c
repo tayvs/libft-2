@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	size = ft_strlen((char *)s);
+	size = ft_strlen(s);
 	dest = ft_strnew(size);
 	if (!dest)
 		return (NULL);

@@ -19,10 +19,10 @@ char	*ft_strnstr(char *haystack, const char *needle, size_t len)
 	size_t	n_len;
 
 	idx = 0;
-	n_len = ft_strlen((char *)needle);
+	n_len = ft_strlen(needle);
 	if (n_len == 0)
-		return ((char *)haystack);
-	h_len = ft_strlen((char *)haystack);
+		return (haystack);
+	h_len = ft_strlen(haystack);
 	if (h_len == 0 || n_len > h_len || len < n_len)
 		return (NULL);
 	while (haystack[idx] && idx + n_len - 1 < len)
